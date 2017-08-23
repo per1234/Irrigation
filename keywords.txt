@@ -1,0 +1,7 @@
+Pump  KEYWORD1
+irrigate  KEYWORD2
+
+HumSensor KEYWORD1
+checkCurrentHumidity KEYWORD2
+checkLastReadingVal KEYWORD2
+checkLastReadingTime KEYWORD2
