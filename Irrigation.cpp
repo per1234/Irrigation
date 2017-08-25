@@ -1,5 +1,5 @@
 /*
-  Irritation.cpp
+  Irrigation.cpp
   Library for controling AC water pumps and humidity sensors using an arduino
 
   This library is free software; you can redistribute it and/or
@@ -9,13 +9,13 @@
   See file LICENSE.txt for further informations on licensing terms.
 */
 
-#include <arduino.h>
+#include "Arduino.h"
 #include "Irrigation.h"
 
 /** Pump funtions **/
-void Pump::Pump(int pin){
+Pump::Pump(int pin){
   pinMode(pin, OUTPUT);
-  pinPump = pin;
+  this->pinPump = pin;
 }
 
 void Pump::irrigate(int duration){
@@ -28,16 +28,16 @@ void Pump::irrigate(int duration){
 }
 
 /** Humidity sensor functions **/
-void HumSensor::HumSensor(int pin){
+HumSensor::HumSensor(int pin){
   pinMode(pin, INPUT);
-  pinHumSensor = pin;
-  lastReadingVal = analogRead(pinHumSensor);
-  lastReadingTime = millis();
+  this->pinHumSensor = pin;
+  this->lastReadingVal = analogRead(pinHumSensor);
+  this->lastReadingTime = millis();
 }
 
 int HumSensor::checkCurrentHumidity(){
-  lastReadingVal = analogRead(pinHumSensor);
-  lastReadingTime = millis();
+  this->lastReadingVal = analogRead(pinHumSensor);
+  this->lastReadingTime = millis();
   return lastReadingVal;
 }
 

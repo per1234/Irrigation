@@ -1,5 +1,5 @@
 /*
-  Irritation.h
+  Irrigation.h
   Library for controling AC water pumps and humidity sensors using an arduino
 
   This library is free software; you can redistribute it and/or
@@ -15,21 +15,24 @@
 #include "Arduino.h"
 
 class Pump {
+  public:
+    Pump(int pin);
+    int pinPump;
+    void irrigate(int duration);
   private:
     int pinPump;
-  public:
-    void irrigate(int duration);
 };
 
 class HumSensor {
+  public:
+    HumSensor(int pin)
+    int checkCurrentHumidity();
+    int checkLastReadingVal();
+    unsigned long checkLastReadingTime();
   private:
     int pinHumSensor;
     int lastReadingVal;
     unsigned long lastReadingTime;
-  public:
-    int checkCurrentHumidity();
-    int checkLastReadingVal();
-    unsigned long checkLastReadingTime();
 };
 
 #endif
